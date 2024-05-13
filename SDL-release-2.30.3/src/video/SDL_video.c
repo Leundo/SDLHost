@@ -1831,6 +1831,190 @@ SDL_Window *SDL_CreateWindow(const char *title, int x, int y, int w, int h, Uint
     return window;
 }
 
+
+SDL_Window *SDL_Leundo_CreateViewBaseWindow(const char *title, int x, int y, int w, int h, Uint32 flags, void* viewController) {
+    SDL_Window *window;
+    Uint32 type_flags, graphics_flags;
+
+    if (!_this) {
+        /* Initialize the video system if needed */
+        if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+            return NULL;
+        }
+
+        /* Make clang-tidy happy */
+        if (!_this) {
+            return NULL;
+        }
+    }
+
+    /* Make sure the display list is up to date for window placement */
+    if (_this->RefreshDisplays) {
+        _this->RefreshDisplays(_this);
+    }
+
+    /* ensure no more than one of these flags is set */
+    type_flags = flags & (SDL_WINDOW_UTILITY | SDL_WINDOW_TOOLTIP | SDL_WINDOW_POPUP_MENU);
+    if (type_flags & (type_flags - 1)) {
+        SDL_SetError("Conflicting window flags specified");
+        return NULL;
+    }
+
+    /* Some platforms can't create zero-sized windows */
+    if (w < 1) {
+        w = 1;
+    }
+    if (h < 1) {
+        h = 1;
+    }
+
+    /* Some platforms blow up if the windows are too large. Raise it later? */
+    if (w > 16384) {
+        w = 16384;
+    }
+    if (h > 16384) {
+        h = 16384;
+    }
+
+    /* ensure no more than one of these flags is set */
+    graphics_flags = flags & (SDL_WINDOW_OPENGL | SDL_WINDOW_METAL | SDL_WINDOW_VULKAN);
+    if (graphics_flags & (graphics_flags - 1)) {
+        SDL_SetError("Conflicting window flags specified");
+        return NULL;
+    }
+
+    /* Some platforms have certain graphics backends enabled by default */
+    if (!graphics_flags && !SDL_IsVideoContextExternal()) {
+        flags |= SDL_DefaultGraphicsBackends(_this);
+    }
+
+    if (flags & SDL_WINDOW_OPENGL) {
+        if (!_this->GL_CreateContext) {
+            SDL_ContextNotSupported("OpenGL");
+            return NULL;
+        }
+        if (SDL_GL_LoadLibrary(NULL) < 0) {
+            return NULL;
+        }
+    }
+
+    if (flags & SDL_WINDOW_VULKAN) {
+        if (!_this->Vulkan_CreateSurface) {
+            SDL_ContextNotSupported("Vulkan");
+            return NULL;
+        }
+        if (SDL_Vulkan_LoadLibrary(NULL) < 0) {
+            return NULL;
+        }
+    }
+
+    if (flags & SDL_WINDOW_METAL) {
+        if (!_this->Metal_CreateView) {
+            SDL_ContextNotSupported("Metal");
+            return NULL;
+        }
+    }
+
+    /* Unless the user has specified the high-DPI disabling hint, respect the
+     * SDL_WINDOW_ALLOW_HIGHDPI flag.
+     */
+    if (flags & SDL_WINDOW_ALLOW_HIGHDPI) {
+        if (SDL_GetHintBoolean(SDL_HINT_VIDEO_HIGHDPI_DISABLED, SDL_FALSE)) {
+            flags &= ~SDL_WINDOW_ALLOW_HIGHDPI;
+        }
+    }
+
+    window = (SDL_Window *)SDL_calloc(1, sizeof(*window));
+    if (!window) {
+        SDL_OutOfMemory();
+        return NULL;
+    }
+    window->magic = &_this->window_magic;
+    window->id = _this->next_object_id++;
+    window->x = x;
+    window->y = y;
+    window->w = w;
+    window->h = h;
+    if (SDL_WINDOWPOS_ISUNDEFINED(x) || SDL_WINDOWPOS_ISUNDEFINED(y) ||
+        SDL_WINDOWPOS_ISCENTERED(x) || SDL_WINDOWPOS_ISCENTERED(y)) {
+        SDL_VideoDisplay *display = SDL_GetDisplayForWindow(window);
+        int displayIndex;
+        SDL_Rect bounds;
+
+        displayIndex = SDL_GetIndexOfDisplay(display);
+        SDL_GetDisplayBounds(displayIndex, &bounds);
+        if (SDL_WINDOWPOS_ISUNDEFINED(x) || SDL_WINDOWPOS_ISCENTERED(x)) {
+            window->x = bounds.x + (bounds.w - w) / 2;
+        }
+        if (SDL_WINDOWPOS_ISUNDEFINED(y) || SDL_WINDOWPOS_ISCENTERED(y)) {
+            window->y = bounds.y + (bounds.h - h) / 2;
+        }
+    }
+    window->windowed.x = window->x;
+    window->windowed.y = window->y;
+    window->windowed.w = window->w;
+    window->windowed.h = window->h;
+
+    if (flags & SDL_WINDOW_FULLSCREEN) {
+        SDL_VideoDisplay *display = SDL_GetDisplayForWindow(window);
+        int displayIndex;
+        SDL_Rect bounds;
+
+        displayIndex = SDL_GetIndexOfDisplay(display);
+        SDL_GetDisplayBounds(displayIndex, &bounds);
+
+        /* for real fullscreen we might switch the resolution, so get width and height
+         * from closest supported mode and use that instead of current resolution
+         */
+        if ((flags & SDL_WINDOW_FULLSCREEN_DESKTOP) != SDL_WINDOW_FULLSCREEN_DESKTOP && (bounds.w != w || bounds.h != h)) {
+            SDL_DisplayMode fullscreen_mode, closest_mode;
+            SDL_zero(fullscreen_mode);
+            fullscreen_mode.w = w;
+            fullscreen_mode.h = h;
+            if (SDL_GetClosestDisplayModeForDisplay(display, &fullscreen_mode, &closest_mode) != NULL) {
+                bounds.w = closest_mode.w;
+                bounds.h = closest_mode.h;
+            }
+        }
+        window->fullscreen_mode.w = bounds.w;
+        window->fullscreen_mode.h = bounds.h;
+        window->x = bounds.x;
+        window->y = bounds.y;
+        window->w = bounds.w;
+        window->h = bounds.h;
+    }
+
+    window->flags = ((flags & CREATE_FLAGS) | SDL_WINDOW_HIDDEN);
+    window->last_fullscreen_flags = window->flags;
+    window->opacity = 1.0f;
+    window->brightness = 1.0f;
+    window->next = _this->windows;
+    window->is_destroying = SDL_FALSE;
+    window->display_index = SDL_GetWindowDisplayIndex(window);
+
+    if (_this->windows) {
+        _this->windows->prev = window;
+    }
+    _this->windows = window;
+
+    if (_this->Leundo_CreateSDLViewBaseWindow && _this->Leundo_CreateSDLViewBaseWindow(_this, window, viewController) < 0) {
+        SDL_DestroyWindow(window);
+        return NULL;
+    }
+
+
+    if (title) {
+        SDL_SetWindowTitle(window, title);
+    }
+    SDL_FinishWindowCreation(window, flags);
+
+    /* If the window was created fullscreen, make sure the mode code matches */
+    SDL_UpdateFullscreenMode(window, FULLSCREEN_VISIBLE(window));
+
+    return window;
+}
+
+
 SDL_Window *SDL_CreateWindowFrom(const void *data)
 {
     SDL_Window *window;

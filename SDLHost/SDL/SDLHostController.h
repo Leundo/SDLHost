@@ -13,6 +13,7 @@
 
 @interface SDLHostController : UIViewController
 
+@property (nonatomic, strong) UIView* sdlView;
 
 @end
 

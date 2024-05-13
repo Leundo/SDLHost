@@ -60,9 +60,6 @@ void initializeTexture(SDL_Renderer *renderer) {
 }
 
 // MARK: - Controller
-@interface SDLHostController ()
-
-@end
 
 
 @implementation SDLHostController
@@ -86,7 +83,8 @@ void initializeTexture(SDL_Renderer *renderer) {
     SDL_Renderer* renderer;
     SDL_Texture* target;
     
-    window = SDL_CreateWindow(NULL, 0, 0, 320, 480, SDL_WINDOW_BORDERLESS | SDL_WINDOW_ALLOW_HIGHDPI);
+    window = SDL_Leundo_CreateViewBaseWindow(NULL, 0, 0, 320, 480, SDL_WINDOW_BORDERLESS | SDL_WINDOW_ALLOW_HIGHDPI, (__bridge void *)(self));
+//    window = SDL_CreateWindow(NULL, 0, 0, 320, 480, SDL_WINDOW_BORDERLESS | SDL_WINDOW_ALLOW_HIGHDPI);
     renderer = SDL_CreateRenderer(window, 0, 0);
     
     SDL_GetWindowSize(window, &w, &h);

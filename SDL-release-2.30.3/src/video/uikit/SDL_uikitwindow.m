@@ -38,6 +38,7 @@
 #import "SDL_uikitappdelegate.h"
 
 #import "SDL_uikitview.h"
+#import "SDL_leundo_uikitview.h"
 #import "SDL_uikitopenglview.h"
 
 #include <Foundation/Foundation.h>
@@ -47,6 +48,7 @@
 @synthesize uiwindow;
 @synthesize viewcontroller;
 @synthesize views;
+@synthesize leundo_uiview;
 
 - (instancetype)init
 {
@@ -55,6 +57,10 @@
     }
 
     return self;
+}
+
+- (bool)is_leundo_view_base {
+    return leundo_uiview != nil;
 }
 
 @end
@@ -149,6 +155,24 @@ static int SetupWindowData(_THIS, SDL_Window *window, UIWindow *uiwindow, SDL_bo
     return 0;
 }
 
+static int Leundo_SetupViewBaseWindowData(_THIS, SDL_Window *window, SDL_leundo_uikitview *uiview, SDL_bool created, void* viewController) {
+    SDL_VideoDisplay *display = SDL_GetDisplayForWindow(window);
+    
+    SDL_WindowData *data = [[SDL_WindowData alloc] init];
+    if (!data) {
+        return SDL_OutOfMemory();
+    }
+
+    window->driverdata = (void *)CFBridgingRetain(data);
+    data.leundo_uiview = uiview;
+    
+    window->flags &= ~SDL_WINDOW_HIDDEN;
+    
+    [uiview setViewController:(__bridge UIViewController*)viewController];
+    
+    return 0;
+}
+
 int UIKit_CreateWindow(_THIS, SDL_Window *window)
 {
     @autoreleasepool {
@@ -216,6 +240,27 @@ int UIKit_CreateWindow(_THIS, SDL_Window *window)
         }
     }
 
+    return 1;
+}
+
+int UIKit_Leundo_CreateViewBaseWindow(_THIS, SDL_Window * window, void* viewController) {
+    @autoreleasepool {
+        SDL_VideoDisplay *display = SDL_GetDisplayForWindow(window);
+        SDL_Window *other;
+
+        /* We currently only handle a single window per display on iOS */
+        for (other = _this->windows; other; other = other->next) {
+            if (other != window && SDL_GetDisplayForWindow(other) == display) {
+                return SDL_SetError("Only one window allowed per display.");
+            }
+        }
+
+        SDL_leundo_uikitview *uiview = [[SDL_leundo_uikitview alloc] initWithFrame:CGRectMake(window->x, window->y, window->w, window->h)];
+        
+        if (Leundo_SetupViewBaseWindowData(_this, window, uiview, SDL_TRUE, viewController) < 0) {
+            return -1;
+        }
+    }
     return 1;
 }
 

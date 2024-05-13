@@ -24,9 +24,11 @@
 #include "../SDL_sysvideo.h"
 #import "SDL_uikitvideo.h"
 #import "SDL_uikitview.h"
+#import "SDL_leundo_uikitview.h"
 #import "SDL_uikitviewcontroller.h"
 
 extern int UIKit_CreateWindow(_THIS, SDL_Window * window);
+extern int UIKit_Leundo_CreateViewBaseWindow(_THIS, SDL_Window* window, void* viewController);
 extern void UIKit_SetWindowTitle(_THIS, SDL_Window * window);
 extern void UIKit_ShowWindow(_THIS, SDL_Window * window);
 extern void UIKit_HideWindow(_THIS, SDL_Window * window);
@@ -51,6 +53,10 @@ extern NSUInteger UIKit_GetSupportedOrientations(SDL_Window * window);
 
 /* Array of SDL_uikitviews owned by this window. */
 @property (nonatomic, copy) NSMutableArray *views;
+
+@property (nonatomic, strong) UIView *leundo_uiview;
+
+- (bool)is_leundo_view_base;
 
 @end
 

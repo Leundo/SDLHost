@@ -2076,6 +2076,8 @@
 		719594072BF1ED25000F2F5B /* SDL2Config.cmake.in */ = {isa = PBXFileReference; lastKnownFileType = text; path = SDL2Config.cmake.in; sourceTree = "<group>"; };
 		719594082BF1ED25000F2F5B /* TODO.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO.txt; sourceTree = "<group>"; };
 		719594092BF1ED25000F2F5B /* WhatsNew.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = WhatsNew.txt; sourceTree = "<group>"; };
+		719594DF2BF1F551000F2F5B /* SDL_leundo_uikitview.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDL_leundo_uikitview.h; sourceTree = "<group>"; };
+		719594E02BF1F559000F2F5B /* SDL_leundo_uikitview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDL_leundo_uikitview.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -5161,6 +5163,8 @@
 				719592172BF1ED25000F2F5B /* SDL_uikitvulkan.m */,
 				719592182BF1ED25000F2F5B /* SDL_uikitwindow.h */,
 				719592192BF1ED25000F2F5B /* SDL_uikitwindow.m */,
+				719594DF2BF1F551000F2F5B /* SDL_leundo_uikitview.h */,
+				719594E02BF1F559000F2F5B /* SDL_leundo_uikitview.m */,
 			);
 			path = uikit;
 			sourceTree = "<group>";

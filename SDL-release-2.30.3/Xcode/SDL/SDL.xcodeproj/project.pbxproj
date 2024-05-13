@@ -75,6 +75,24 @@
 		56C5237F1D8F4985001F2F30 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7381E951D8B69D600B177DD /* CoreAudio.framework */; };
 		56C523811D8F498C001F2F30 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D0D08310675DD9004B05EF /* CoreFoundation.framework */; };
 		5C2EF7011FC9EF10003F5197 /* SDL_egl.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C2EF7001FC9EF0F003F5197 /* SDL_egl.h */; };
+		719594E92BF1F7F2000F2F5B /* SDL_leundo_uikitview.m in Sources */ = {isa = PBXBuildFile; fileRef = 719594E72BF1F7F2000F2F5B /* SDL_leundo_uikitview.m */; };
+		719594EA2BF1F7F2000F2F5B /* SDL_leundo_uikitview.m in Sources */ = {isa = PBXBuildFile; fileRef = 719594E72BF1F7F2000F2F5B /* SDL_leundo_uikitview.m */; };
+		719594EB2BF1F7F2000F2F5B /* SDL_leundo_uikitview.m in Sources */ = {isa = PBXBuildFile; fileRef = 719594E72BF1F7F2000F2F5B /* SDL_leundo_uikitview.m */; };
+		719594EC2BF1F7F2000F2F5B /* SDL_leundo_uikitview.m in Sources */ = {isa = PBXBuildFile; fileRef = 719594E72BF1F7F2000F2F5B /* SDL_leundo_uikitview.m */; };
+		719594ED2BF1F7F2000F2F5B /* SDL_leundo_uikitview.m in Sources */ = {isa = PBXBuildFile; fileRef = 719594E72BF1F7F2000F2F5B /* SDL_leundo_uikitview.m */; };
+		719594EE2BF1F7F2000F2F5B /* SDL_leundo_uikitview.m in Sources */ = {isa = PBXBuildFile; fileRef = 719594E72BF1F7F2000F2F5B /* SDL_leundo_uikitview.m */; };
+		719594EF2BF1F7F2000F2F5B /* SDL_leundo_uikitview.m in Sources */ = {isa = PBXBuildFile; fileRef = 719594E72BF1F7F2000F2F5B /* SDL_leundo_uikitview.m */; };
+		719594F02BF1F7F2000F2F5B /* SDL_leundo_uikitview.m in Sources */ = {isa = PBXBuildFile; fileRef = 719594E72BF1F7F2000F2F5B /* SDL_leundo_uikitview.m */; };
+		719594F12BF1F7F2000F2F5B /* SDL_leundo_uikitview.m in Sources */ = {isa = PBXBuildFile; fileRef = 719594E72BF1F7F2000F2F5B /* SDL_leundo_uikitview.m */; };
+		719594F22BF1F7F2000F2F5B /* SDL_leundo_uikitview.h in Headers */ = {isa = PBXBuildFile; fileRef = 719594E82BF1F7F2000F2F5B /* SDL_leundo_uikitview.h */; };
+		719594F32BF1F7F2000F2F5B /* SDL_leundo_uikitview.h in Headers */ = {isa = PBXBuildFile; fileRef = 719594E82BF1F7F2000F2F5B /* SDL_leundo_uikitview.h */; };
+		719594F42BF1F7F2000F2F5B /* SDL_leundo_uikitview.h in Headers */ = {isa = PBXBuildFile; fileRef = 719594E82BF1F7F2000F2F5B /* SDL_leundo_uikitview.h */; };
+		719594F52BF1F7F2000F2F5B /* SDL_leundo_uikitview.h in Headers */ = {isa = PBXBuildFile; fileRef = 719594E82BF1F7F2000F2F5B /* SDL_leundo_uikitview.h */; };
+		719594F62BF1F7F2000F2F5B /* SDL_leundo_uikitview.h in Headers */ = {isa = PBXBuildFile; fileRef = 719594E82BF1F7F2000F2F5B /* SDL_leundo_uikitview.h */; };
+		719594F72BF1F7F2000F2F5B /* SDL_leundo_uikitview.h in Headers */ = {isa = PBXBuildFile; fileRef = 719594E82BF1F7F2000F2F5B /* SDL_leundo_uikitview.h */; };
+		719594F82BF1F7F2000F2F5B /* SDL_leundo_uikitview.h in Headers */ = {isa = PBXBuildFile; fileRef = 719594E82BF1F7F2000F2F5B /* SDL_leundo_uikitview.h */; };
+		719594F92BF1F7F2000F2F5B /* SDL_leundo_uikitview.h in Headers */ = {isa = PBXBuildFile; fileRef = 719594E82BF1F7F2000F2F5B /* SDL_leundo_uikitview.h */; };
+		719594FA2BF1F7F2000F2F5B /* SDL_leundo_uikitview.h in Headers */ = {isa = PBXBuildFile; fileRef = 719594E82BF1F7F2000F2F5B /* SDL_leundo_uikitview.h */; };
 		75E0915A241EA924004729E1 /* SDL_virtualjoystick.c in Sources */ = {isa = PBXBuildFile; fileRef = 75E09158241EA924004729E1 /* SDL_virtualjoystick.c */; };
 		75E0915B241EA924004729E1 /* SDL_virtualjoystick.c in Sources */ = {isa = PBXBuildFile; fileRef = 75E09158241EA924004729E1 /* SDL_virtualjoystick.c */; };
 		75E0915C241EA924004729E1 /* SDL_virtualjoystick.c in Sources */ = {isa = PBXBuildFile; fileRef = 75E09158241EA924004729E1 /* SDL_virtualjoystick.c */; };
@@ -3785,6 +3803,8 @@
 		566E26CE246274CC00718109 /* SDL_syslocale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SDL_syslocale.h; path = locale/SDL_syslocale.h; sourceTree = "<group>"; };
 		567E2F2017C44C35005F1892 /* SDL_filesystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_filesystem.h; sourceTree = "<group>"; };
 		5C2EF7001FC9EF0F003F5197 /* SDL_egl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_egl.h; sourceTree = "<group>"; };
+		719594E72BF1F7F2000F2F5B /* SDL_leundo_uikitview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDL_leundo_uikitview.m; sourceTree = "<group>"; };
+		719594E82BF1F7F2000F2F5B /* SDL_leundo_uikitview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_leundo_uikitview.h; sourceTree = "<group>"; };
 		75E09158241EA924004729E1 /* SDL_virtualjoystick.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SDL_virtualjoystick.c; sourceTree = "<group>"; };
 		75E09159241EA924004729E1 /* SDL_virtualjoystick_c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL_virtualjoystick_c.h; sourceTree = "<group>"; };
 		9846B07B287A9020000C35C8 /* SDL_hidapi_shield.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SDL_hidapi_shield.c; sourceTree = "<group>"; };
@@ -4895,6 +4915,8 @@
 				A7D8A62523E2513D00DCD162 /* SDL_uikitvulkan.m */,
 				A7D8A62723E2513D00DCD162 /* SDL_uikitwindow.h */,
 				A7D8A61A23E2513D00DCD162 /* SDL_uikitwindow.m */,
+				719594E82BF1F7F2000F2F5B /* SDL_leundo_uikitview.h */,
+				719594E72BF1F7F2000F2F5B /* SDL_leundo_uikitview.m */,
 			);
 			path = uikit;
 			sourceTree = "<group>";
@@ -5550,6 +5572,7 @@
 				A75FCD3423E25AB700529352 /* blank_cursor.h in Headers */,
 				A75FDB5F23E39E6100529352 /* hidapi.h in Headers */,
 				A75FCD3523E25AB700529352 /* SDL_gesture.h in Headers */,
+				719594F92BF1F7F2000F2F5B /* SDL_leundo_uikitview.h in Headers */,
 				A75FDBCC23EA380300529352 /* SDL_hidapi_rumble.h in Headers */,
 				A75FCD3623E25AB700529352 /* SDL_sysaudio.h in Headers */,
 				A75FCD3723E25AB700529352 /* SDL_haptic.h in Headers */,
@@ -5785,6 +5808,7 @@
 				A75FCEED23E25AC700529352 /* blank_cursor.h in Headers */,
 				A75FDB6023E39E6100529352 /* hidapi.h in Headers */,
 				A75FCEEE23E25AC700529352 /* SDL_gesture.h in Headers */,
+				719594FA2BF1F7F2000F2F5B /* SDL_leundo_uikitview.h in Headers */,
 				A75FDBCD23EA380300529352 /* SDL_hidapi_rumble.h in Headers */,
 				A75FCEEF23E25AC700529352 /* SDL_sysaudio.h in Headers */,
 				A75FCEF023E25AC700529352 /* SDL_haptic.h in Headers */,
@@ -6093,6 +6117,7 @@
 				A769B13323E259AE00872273 /* SDL_blit_copy.h in Headers */,
 				A769B13423E259AE00872273 /* SDL_RLEaccel_c.h in Headers */,
 				75E09168241EA924004729E1 /* SDL_virtualjoystick_c.h in Headers */,
+				719594F72BF1F7F2000F2F5B /* SDL_leundo_uikitview.h in Headers */,
 				A769B13523E259AE00872273 /* eglplatform.h in Headers */,
 				A769B13823E259AE00872273 /* SDL_systhread.h in Headers */,
 				A769B13B23E259AE00872273 /* SDL_cocoaclipboard.h in Headers */,
@@ -6207,6 +6232,7 @@
 				A7D88A2B23E2437C00DCD162 /* SDL_gamecontroller.h in Headers */,
 				A7D8B4AD23E2514300DCD162 /* SDL_gamecontrollerdb.h in Headers */,
 				A7D88A2C23E2437C00DCD162 /* SDL_gesture.h in Headers */,
+				A7D8AC9A23E2514100DCD162 /* SDL_uikitwindow.h in Headers */,
 				A7D8BB3A23E2514500DCD162 /* SDL_gesture_c.h in Headers */,
 				A7D8BA5623E2514400DCD162 /* SDL_gles2funcs.h in Headers */,
 				A7D8BA4423E2514400DCD162 /* SDL_glesfuncs.h in Headers */,
@@ -6322,7 +6348,6 @@
 				A7D8AC4623E2514100DCD162 /* SDL_uikitview.h in Headers */,
 				A7D8AC8823E2514100DCD162 /* SDL_uikitviewcontroller.h in Headers */,
 				A7D8ACE223E2514100DCD162 /* SDL_uikitvulkan.h in Headers */,
-				A7D8AC9A23E2514100DCD162 /* SDL_uikitwindow.h in Headers */,
 				A7D88A5923E2437C00DCD162 /* SDL_version.h in Headers */,
 				A7D88A5A23E2437C00DCD162 /* SDL_video.h in Headers */,
 				75E09164241EA924004729E1 /* SDL_virtualjoystick_c.h in Headers */,
@@ -6372,6 +6397,7 @@
 				A7D8B29D23E2514200DCD162 /* vulkan_xlib.h in Headers */,
 				A7D8B28B23E2514200DCD162 /* vulkan_xlib_xrandr.h in Headers */,
 				A7D8B3D523E2514300DCD162 /* yuv_rgb.h in Headers */,
+				719594F32BF1F7F2000F2F5B /* SDL_leundo_uikitview.h in Headers */,
 				A7D8B3C923E2514300DCD162 /* yuv_rgb_sse_func.h in Headers */,
 				A7D8B3CF23E2514300DCD162 /* yuv_rgb_std_func.h in Headers */,
 			);
@@ -6612,6 +6638,7 @@
 				A7D8B29E23E2514200DCD162 /* vulkan_xlib.h in Headers */,
 				A7D8B28C23E2514200DCD162 /* vulkan_xlib_xrandr.h in Headers */,
 				A7D8B3D623E2514300DCD162 /* yuv_rgb.h in Headers */,
+				719594F42BF1F7F2000F2F5B /* SDL_leundo_uikitview.h in Headers */,
 				A7D8B3CA23E2514300DCD162 /* yuv_rgb_sse_func.h in Headers */,
 				A7D8B3D023E2514300DCD162 /* yuv_rgb_std_func.h in Headers */,
 			);
@@ -6748,6 +6775,7 @@
 				A7D8B39C23E2514200DCD162 /* SDL_blit_copy.h in Headers */,
 				A7D8B3A223E2514200DCD162 /* SDL_RLEaccel_c.h in Headers */,
 				75E09167241EA924004729E1 /* SDL_virtualjoystick_c.h in Headers */,
+				719594F62BF1F7F2000F2F5B /* SDL_leundo_uikitview.h in Headers */,
 				A7D8B24C23E2514200DCD162 /* eglplatform.h in Headers */,
 				A7D8B3EA23E2514300DCD162 /* SDL_systhread.h in Headers */,
 				A7D8AECE23E2514100DCD162 /* SDL_cocoaclipboard.h in Headers */,
@@ -6862,6 +6890,7 @@
 				A77E6EB4167AB0A90010E40B /* SDL_gamecontroller.h in Headers */,
 				A7D8B4AC23E2514300DCD162 /* SDL_gamecontrollerdb.h in Headers */,
 				AA7558161595D4D800BBD41B /* SDL_gesture.h in Headers */,
+				A7D8BBEA23E2574800DCD162 /* SDL_uikitwindow.h in Headers */,
 				A7D8BB3923E2514500DCD162 /* SDL_gesture_c.h in Headers */,
 				A7D8BA5523E2514400DCD162 /* SDL_gles2funcs.h in Headers */,
 				A7D8BA4323E2514400DCD162 /* SDL_glesfuncs.h in Headers */,
@@ -6977,7 +7006,6 @@
 				A7D8BBE423E2574800DCD162 /* SDL_uikitview.h in Headers */,
 				A7D8BBE623E2574800DCD162 /* SDL_uikitviewcontroller.h in Headers */,
 				A7D8BBE823E2574800DCD162 /* SDL_uikitvulkan.h in Headers */,
-				A7D8BBEA23E2574800DCD162 /* SDL_uikitwindow.h in Headers */,
 				AA75585A1595D4D800BBD41B /* SDL_version.h in Headers */,
 				AA75585C1595D4D800BBD41B /* SDL_video.h in Headers */,
 				75E09163241EA924004729E1 /* SDL_virtualjoystick_c.h in Headers */,
@@ -7027,6 +7055,7 @@
 				A7D8B29C23E2514200DCD162 /* vulkan_xlib.h in Headers */,
 				A7D8B28A23E2514200DCD162 /* vulkan_xlib_xrandr.h in Headers */,
 				A7D8B3D423E2514300DCD162 /* yuv_rgb.h in Headers */,
+				719594F22BF1F7F2000F2F5B /* SDL_leundo_uikitview.h in Headers */,
 				A7D8B3C823E2514200DCD162 /* yuv_rgb_sse_func.h in Headers */,
 				A7D8B3CE23E2514300DCD162 /* yuv_rgb_std_func.h in Headers */,
 			);
@@ -7105,6 +7134,7 @@
 				A7D8B3CB23E2514300DCD162 /* yuv_rgb_sse_func.h in Headers */,
 				A7D8AB5E23E2514100DCD162 /* SDL_offscreenevents_c.h in Headers */,
 				F3973FA528A59BDD00B84553 /* SDL_vacopy.h in Headers */,
+				719594F52BF1F7F2000F2F5B /* SDL_leundo_uikitview.h in Headers */,
 				A7D8B8CF23E2514400DCD162 /* SDL_coreaudio.h in Headers */,
 				A7D8BA1C23E2514400DCD162 /* SDL_draw.h in Headers */,
 				A7D8BA0A23E2514400DCD162 /* SDL_drawline.h in Headers */,
@@ -7264,6 +7294,7 @@
 				A7D8B2C523E2514200DCD162 /* SDL_pixels_c.h in Headers */,
 				A7D8B58C23E2514300DCD162 /* SDL_joystick_c.h in Headers */,
 				A7D8B2B323E2514200DCD162 /* vk_sdk_platform.h in Headers */,
+				719594F82BF1F7F2000F2F5B /* SDL_leundo_uikitview.h in Headers */,
 				A7D8BB4A23E2514500DCD162 /* blank_cursor.h in Headers */,
 				DB313FD617554B71006C0E22 /* SDL_gesture.h in Headers */,
 				A7D8B85F23E2514400DCD162 /* SDL_sysaudio.h in Headers */,
@@ -8033,6 +8064,7 @@
 				A75FCE6D23E25AB700529352 /* SDL_joystick.c in Sources */,
 				A75FCE6E23E25AB700529352 /* SDL_render_gles2.c in Sources */,
 				A75FCE6F23E25AB700529352 /* SDL_surface.c in Sources */,
+				719594F02BF1F7F2000F2F5B /* SDL_leundo_uikitview.m in Sources */,
 				A75FCE7023E25AB700529352 /* SDL_hidapi_xboxone.c in Sources */,
 				A75FCE7123E25AB700529352 /* SDL_blit_auto.c in Sources */,
 				A75FCE7323E25AB700529352 /* SDL_keyboard.c in Sources */,
@@ -8233,6 +8265,7 @@
 				A75FD02623E25AC700529352 /* SDL_joystick.c in Sources */,
 				A75FD02723E25AC700529352 /* SDL_render_gles2.c in Sources */,
 				A75FD02823E25AC700529352 /* SDL_surface.c in Sources */,
+				719594F12BF1F7F2000F2F5B /* SDL_leundo_uikitview.m in Sources */,
 				A75FD02923E25AC700529352 /* SDL_hidapi_xboxone.c in Sources */,
 				A75FD02A23E25AC700529352 /* SDL_blit_auto.c in Sources */,
 				A75FD02C23E25AC700529352 /* SDL_keyboard.c in Sources */,
@@ -8380,6 +8413,7 @@
 				A769B1C723E259AE00872273 /* SDL_hints.c in Sources */,
 				F3A490A32554D38600E92A8B /* SDL_hidapi_ps5.c in Sources */,
 				A769B1C823E259AE00872273 /* SDL_hidapi_ps4.c in Sources */,
+				719594EE2BF1F7F2000F2F5B /* SDL_leundo_uikitview.m in Sources */,
 				A769B1C923E259AE00872273 /* SDL_pixels.c in Sources */,
 				A769B1CB23E259AE00872273 /* SDL_sysloadso.c in Sources */,
 				A769B1CD23E259AE00872273 /* SDL_syspower.c in Sources */,
@@ -8634,6 +8668,7 @@
 				A7D8AC2E23E2514100DCD162 /* SDL_surface.c in Sources */,
 				A7D8B54C23E2514300DCD162 /* SDL_hidapi_xboxone.c in Sources */,
 				A7D8AD2423E2514100DCD162 /* SDL_blit_auto.c in Sources */,
+				719594EA2BF1F7F2000F2F5B /* SDL_leundo_uikitview.m in Sources */,
 				A7D8BB6A23E2514500DCD162 /* SDL_keyboard.c in Sources */,
 				A7D8ACE823E2514100DCD162 /* SDL_rect.c in Sources */,
 				A7D8AE9B23E2514100DCD162 /* SDL_cocoaopengles.m in Sources */,
@@ -8834,6 +8869,7 @@
 				A7D8AC2F23E2514100DCD162 /* SDL_surface.c in Sources */,
 				A7D8B54D23E2514300DCD162 /* SDL_hidapi_xboxone.c in Sources */,
 				A7D8AD2523E2514100DCD162 /* SDL_blit_auto.c in Sources */,
+				719594EB2BF1F7F2000F2F5B /* SDL_leundo_uikitview.m in Sources */,
 				A7D8BB6B23E2514500DCD162 /* SDL_keyboard.c in Sources */,
 				A7D8ACE923E2514100DCD162 /* SDL_rect.c in Sources */,
 				A7D8AE9C23E2514100DCD162 /* SDL_cocoaopengles.m in Sources */,
@@ -8981,6 +9017,7 @@
 				A7D8AA6923E2514000DCD162 /* SDL_hints.c in Sources */,
 				F3A490A22554D38600E92A8B /* SDL_hidapi_ps5.c in Sources */,
 				A7D8B54323E2514300DCD162 /* SDL_hidapi_ps4.c in Sources */,
+				719594ED2BF1F7F2000F2F5B /* SDL_leundo_uikitview.m in Sources */,
 				A7D8AD7223E2514100DCD162 /* SDL_pixels.c in Sources */,
 				A7D8B76223E2514300DCD162 /* SDL_sysloadso.c in Sources */,
 				A7D8B5F723E2514300DCD162 /* SDL_syspower.c in Sources */,
@@ -9218,6 +9255,7 @@
 				A7D8BBDF23E2574800DCD162 /* SDL_uikitopengles.m in Sources */,
 				F32305FF28939F6400E66D30 /* SDL_hidapi_combined.c in Sources */,
 				A7D8B79A23E2514400DCD162 /* SDL_dummyaudio.c in Sources */,
+				719594E92BF1F7F2000F2F5B /* SDL_leundo_uikitview.m in Sources */,
 				A7D8B3A423E2514200DCD162 /* SDL_fillrect.c in Sources */,
 				A7D8ABDF23E2514100DCD162 /* SDL_nullframebuffer.c in Sources */,
 				A7D8A96923E2514000DCD162 /* SDL_dummysensor.c in Sources */,
@@ -9417,6 +9455,7 @@
 				A7D8B3A723E2514200DCD162 /* SDL_fillrect.c in Sources */,
 				F323060228939F6400E66D30 /* SDL_hidapi_combined.c in Sources */,
 				75E0915D241EA924004729E1 /* SDL_virtualjoystick.c in Sources */,
+				719594EC2BF1F7F2000F2F5B /* SDL_leundo_uikitview.m in Sources */,
 				A7D8ABE223E2514100DCD162 /* SDL_nullframebuffer.c in Sources */,
 				A7D8A96C23E2514000DCD162 /* SDL_dummysensor.c in Sources */,
 				A7D8B95F23E2514400DCD162 /* SDL_string.c in Sources */,
@@ -9616,6 +9655,7 @@
 				A7D8B3A923E2514200DCD162 /* SDL_fillrect.c in Sources */,
 				F323060528939F6400E66D30 /* SDL_hidapi_combined.c in Sources */,
 				75E09160241EA924004729E1 /* SDL_virtualjoystick.c in Sources */,
+				719594EF2BF1F7F2000F2F5B /* SDL_leundo_uikitview.m in Sources */,
 				A7D8ABE423E2514100DCD162 /* SDL_nullframebuffer.c in Sources */,
 				A7D8A96E23E2514000DCD162 /* SDL_dummysensor.c in Sources */,
 				A7D8B96123E2514400DCD162 /* SDL_string.c in Sources */,

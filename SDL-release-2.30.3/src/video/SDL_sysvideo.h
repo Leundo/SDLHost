@@ -225,6 +225,8 @@ struct SDL_VideoDevice
     /*
      * Window functions
      */
+    int (*Leundo_CreateSDLViewBaseWindow)(_THIS, SDL_Window *window, void* viewController);
+    
     int (*CreateSDLWindow)(_THIS, SDL_Window *window);
     int (*CreateSDLWindowFrom)(_THIS, SDL_Window *window, const void *data);
     void (*SetWindowTitle)(_THIS, SDL_Window *window);

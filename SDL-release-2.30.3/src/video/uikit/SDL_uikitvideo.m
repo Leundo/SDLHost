@@ -80,6 +80,8 @@ static SDL_VideoDevice *UIKit_CreateDevice(void)
         device->driverdata = (void *) CFBridgingRetain(data);
 
         /* Set the function pointers */
+        device->Leundo_CreateSDLViewBaseWindow = UIKit_Leundo_CreateViewBaseWindow;
+        
         device->VideoInit = UIKit_VideoInit;
         device->VideoQuit = UIKit_VideoQuit;
         device->GetDisplayModes = UIKit_GetDisplayModes;

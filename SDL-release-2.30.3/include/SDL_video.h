@@ -782,6 +782,8 @@ extern DECLSPEC SDL_Window * SDLCALL SDL_CreateWindow(const char *title,
                                                       int x, int y, int w,
                                                       int h, Uint32 flags);
 
+extern DECLSPEC SDL_Window * SDLCALL SDL_Leundo_CreateViewBaseWindow(const char *title,  int x, int y, int w, int h, Uint32 flags, void* viewController);
+
 /**
  * Create an SDL window from an existing native window.
  *

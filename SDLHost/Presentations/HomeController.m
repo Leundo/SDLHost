@@ -42,9 +42,15 @@
     NSLayoutConstraint *heightConstraint = [NSLayoutConstraint constraintWithItem:self.button attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:32];
     
     [self.view addConstraints:@[centerXConstraint, centerYConstraint, widthConstraint, heightConstraint]];
+    
+    [self performSelector:@selector(presentSDL) withObject:nil afterDelay:0.0];
 }
 
 - (IBAction)presentSDL:(id)sender forEvent:(UIEvent*)event {
+    [self presentViewController:self.sdlHostController animated:YES completion:nil];
+}
+
+- (void)presentSDL {
     [self presentViewController:self.sdlHostController animated:YES completion:nil];
 }
 

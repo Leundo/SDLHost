@@ -155,7 +155,7 @@ static int SetupWindowData(_THIS, SDL_Window *window, UIWindow *uiwindow, SDL_bo
     return 0;
 }
 
-static int Leundo_SetupViewBaseWindowData(_THIS, SDL_Window *window, SDL_leundo_uikitview *uiview, SDL_bool created, void* viewController) {
+static int Leundo_SetupViewBaseWindowData(_THIS, SDL_Window *window, SDL_leundo_uikitview *uiview, SDL_bool created) {
     SDL_VideoDisplay *display = SDL_GetDisplayForWindow(window);
     
     SDL_WindowData *data = [[SDL_WindowData alloc] init];
@@ -168,7 +168,7 @@ static int Leundo_SetupViewBaseWindowData(_THIS, SDL_Window *window, SDL_leundo_
     
     window->flags &= ~SDL_WINDOW_HIDDEN;
     
-    [uiview setViewController:(__bridge UIViewController*)viewController];
+//    [uiview setViewController:(__bridge UIViewController*)viewController];
     
     return 0;
 }
@@ -255,9 +255,10 @@ int UIKit_Leundo_CreateViewBaseWindow(_THIS, SDL_Window * window, void* viewCont
             }
         }
 
-        SDL_leundo_uikitview *uiview = [[SDL_leundo_uikitview alloc] initWithFrame:CGRectMake(window->x, window->y, window->w, window->h)];
         
-        if (Leundo_SetupViewBaseWindowData(_this, window, uiview, SDL_TRUE, viewController) < 0) {
+        SDL_leundo_uikitview *uiview = (__bridge SDL_leundo_uikitview *)(UIKit_Leundo_Metal_CreateView(_this, window, (__bridge UIViewController* )viewController));
+        
+        if (Leundo_SetupViewBaseWindowData(_this, window, uiview, SDL_TRUE) < 0) {
             return -1;
         }
     }

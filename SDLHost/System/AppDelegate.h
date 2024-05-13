@@ -10,5 +10,10 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 
+// MARK: - SDL
++ (id)sharedAppDelegate;
++ (NSString *)getAppDelegateClassName;
+
+
 @end
 

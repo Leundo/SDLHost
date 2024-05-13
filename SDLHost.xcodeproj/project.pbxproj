@@ -14,6 +14,10 @@
 		71958C9D2BF1C8FA000F2F5B /* CompassController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71958C9C2BF1C8FA000F2F5B /* CompassController.m */; };
 		71958CA12BF1CC4F000F2F5B /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71958CA02BF1CC4F000F2F5B /* HomeController.m */; };
 		71958CA52BF1D455000F2F5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71958CA42BF1D455000F2F5B /* LaunchScreen.storyboard */; };
+		71958CA82BF1DA8D000F2F5B /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71958BF22BF1B6E6000F2F5B /* SDL2.framework */; };
+		71958CA92BF1DA8D000F2F5B /* SDL2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 71958BF22BF1B6E6000F2F5B /* SDL2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		71958CE22BF1DF7E000F2F5B /* SDLHostController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71958CE12BF1DF7E000F2F5B /* SDLHostController.m */; };
+		71958CE52BF1E280000F2F5B /* stroke.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 71958CE42BF1E280000F2F5B /* stroke.bmp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -487,6 +491,20 @@
 			remoteInfo = torturethread;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		71958CAA2BF1DA8D000F2F5B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				71958CA92BF1DA8D000F2F5B /* SDL2.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7195835A2BF1B695000F2F5B /* SDLHost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SDLHost.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2251,6 +2269,9 @@
 		71958CA02BF1CC4F000F2F5B /* HomeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeController.m; sourceTree = "<group>"; };
 		71958CA22BF1CC58000F2F5B /* HomeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeController.h; sourceTree = "<group>"; };
 		71958CA42BF1D455000F2F5B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		71958CE12BF1DF7E000F2F5B /* SDLHostController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDLHostController.m; sourceTree = "<group>"; };
+		71958CE32BF1DF8A000F2F5B /* SDLHostController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDLHostController.h; sourceTree = "<group>"; };
+		71958CE42BF1E280000F2F5B /* stroke.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = stroke.bmp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2258,6 +2279,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71958CA82BF1DA8D000F2F5B /* SDL2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2285,6 +2307,7 @@
 			isa = PBXGroup;
 			children = (
 				71958CA62BF1D4A2000F2F5B /* Resources */,
+				71958CE02BF1DF67000F2F5B /* SDL */,
 				71958CA32BF1CDFB000F2F5B /* System */,
 				71958C9B2BF1C824000F2F5B /* Presentations */,
 				7195836E2BF1B697000F2F5B /* Info.plist */,
@@ -7171,10 +7194,20 @@
 		71958CA62BF1D4A2000F2F5B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				71958CE42BF1E280000F2F5B /* stroke.bmp */,
 				719583692BF1B697000F2F5B /* Assets.xcassets */,
 				71958CA42BF1D455000F2F5B /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		71958CE02BF1DF67000F2F5B /* SDL */ = {
+			isa = PBXGroup;
+			children = (
+				71958CE32BF1DF8A000F2F5B /* SDLHostController.h */,
+				71958CE12BF1DF7E000F2F5B /* SDLHostController.m */,
+			);
+			path = SDL;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -7187,6 +7220,7 @@
 				719583562BF1B695000F2F5B /* Sources */,
 				719583572BF1B695000F2F5B /* Frameworks */,
 				719583582BF1B695000F2F5B /* Resources */,
+				71958CAA2BF1DA8D000F2F5B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -7720,6 +7754,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71958CE52BF1E280000F2F5B /* stroke.bmp in Resources */,
 				7195836A2BF1B697000F2F5B /* Assets.xcassets in Resources */,
 				71958CA52BF1D455000F2F5B /* LaunchScreen.storyboard in Resources */,
 			);
@@ -7737,6 +7772,7 @@
 				71958C9D2BF1C8FA000F2F5B /* CompassController.m in Sources */,
 				71958CA12BF1CC4F000F2F5B /* HomeController.m in Sources */,
 				719583622BF1B695000F2F5B /* SceneDelegate.m in Sources */,
+				71958CE22BF1DF7E000F2F5B /* SDLHostController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

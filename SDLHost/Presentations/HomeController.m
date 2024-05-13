@@ -7,11 +7,13 @@
 
 #import <Foundation/Foundation.h>
 #import "HomeController.h"
+#import "SDLHostController.h"
 
 
 @interface HomeController ()
 
 @property (nonatomic, strong) UIButton* button;
+@property (nonatomic, strong) UIViewController* sdlHostController;
 
 @end
 
@@ -20,6 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.sdlHostController = [[SDLHostController alloc] init];
     
     self.view.backgroundColor = [UIColor systemBackgroundColor];
     self.navigationItem.title = @"Home";
@@ -41,7 +45,7 @@
 }
 
 - (IBAction)presentSDL:(id)sender forEvent:(UIEvent*)event {
-    NSLog(@"Touch: %@", sender);
+    [self presentViewController:self.sdlHostController animated:YES completion:nil];
 }
 
 

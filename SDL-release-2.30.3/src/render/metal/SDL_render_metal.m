@@ -1552,7 +1552,7 @@ static int METAL_SetVSync(SDL_Renderer * renderer, const int vsync)
     return SDL_SetError("This Apple OS does not support displaySyncEnabled!");
 }
 
-static SDL_MetalView GetWindowView(SDL_Window *window)
+static SDL_MetalView GetWindowView(SDL_Window *window, bool* isRetained)
 {
     SDL_SysWMinfo info;
 
@@ -1570,8 +1570,13 @@ static SDL_MetalView GetWindowView(SDL_Window *window)
         }
 #else
         if (info.subsystem == SDL_SYSWM_UIKIT) {
+            if (info.info.uikit.leundo_view) {
+                return (__bridge SDL_MetalView)(info.info.uikit.leundo_view);
+            }
+            
             UIView *view = info.info.uikit.window.rootViewController.view;
             if (view.tag == SDL_METALVIEW_TAG) {
+                *isRetained = true;
                 return (SDL_MetalView)CFBridgingRetain(view);
             }
         }
@@ -1677,7 +1682,8 @@ static SDL_Renderer *METAL_CreateRenderer(SDL_Window * window, Uint32 flags)
         return NULL;
     }
 
-    view = GetWindowView(window);
+    bool isRetained = false;
+    view = GetWindowView(window, &isRetained);
     if (view == nil) {
         view = SDL_Metal_CreateView(window);
     }
@@ -1695,7 +1701,10 @@ static SDL_Renderer *METAL_CreateRenderer(SDL_Window * window, Uint32 flags)
            in case we want to use it later (recreating the renderer)
          */
         /* SDL_Metal_DestroyView(view); */
-        CFBridgingRelease(view);
+        
+        if (isRetained) {
+            CFBridgingRelease(view);
+        }
         SDL_free(renderer);
         return NULL;
     }

@@ -278,6 +278,7 @@ struct SDL_SysWMinfo
 #if defined(__OBJC__) && defined(__has_feature)
         #if __has_feature(objc_arc)
             UIWindow __unsafe_unretained *window; /**< The UIKit window */
+            UIView __unsafe_unretained *leundo_view;
         #else
             UIWindow *window;                     /**< The UIKit window */
         #endif

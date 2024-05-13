@@ -427,6 +427,7 @@ SDL_bool UIKit_GetWindowWMInfo(_THIS, SDL_Window * window, SDL_SysWMinfo * info)
 
             info->subsystem = SDL_SYSWM_UIKIT;
             info->info.uikit.window = data.uiwindow;
+            info->info.uikit.leundo_view = data.leundo_uiview;
 
             /* These struct members were added in SDL 2.0.4. */
             if (versionnum >= SDL_VERSIONNUM(2,0,4)) {
